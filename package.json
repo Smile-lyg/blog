@@ -1,0 +1,21 @@
+{
+  "name": "my-blog",
+  "version": "1.0.0",
+  "author": "reco_luan",
+  "scripts": {
+    "dev": "vuepress dev . --open --host \"localhost\"",
+    "build": "vuepress build .",
+    "gitee": "deploy_gitee.sh"
+  },
+  "devDependencies": {
+    "@vuepress-reco/vuepress-plugin-kan-ban-niang": "^1.0.5",
+    "compression": "^1.7.4",
+    "express": "^4.17.1",
+    "vuepress": "1.7.1",
+    "vuepress-plugin-cursor-effects": "^1.0.2",
+    "vuepress-plugin-nuggets-style-copy": "^1.0.3",
+    "vuepress-theme-reco": "1.6.1"
+  },
+  "description": "take study notes",
+  "dependencies": {}
+}

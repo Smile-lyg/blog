@@ -3,8 +3,6 @@ title: 常用pm2命令
 date: 2021-03-26
 tags:
  - pm2
-categories:
- - 笔记
 ---
 
 ## 使用pm2管理应用

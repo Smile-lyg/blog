@@ -1,0 +1,81 @@
+---
+title: 常用JavaScript技巧自查
+date: 2021-04-09
+tags:
+ - JavaScript
+categories:
+ - 笔记
+---
+
+## 防抖
+::: tip
+防抖：在限制的时间范围内连续触发相同事件，函数不会执行，直到间隔大于限制事件才执行。
+:::
+
+```js
+/**
+* @Description：防抖函数
+* @param { Function } func 回调函数
+* @param { Number } wait 延迟时间
+* @param { Boolean } immediate 是否立即执行
+* @return { Function }
+*/
+const debounce = (func, wait = 1000, immediate = false) => {
+    let timeout = null;
+    return function(){
+        const context = this, args = arguments;
+        const later = function(){
+            timeout = null;
+            if(!immediate) func.apply(context, args);
+        }
+        const callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if(callNow) func.apply(context, args);
+    }
+}
+```
+
+## 节流
+::: tip
+节流：连续触发相同事件每隔指定时间调用一次。
+:::
+
+- 时间戳版节流
+```js
+/**
+* @Description：时间戳版节流
+* @param { Function } func 回调函数
+* @param { Number } wait 延迟时间
+* @return { Function }
+*/
+const throttlel = (func, wait = 1000) => {
+    let oldDate = Date.now();
+    return function () {
+        const nowDate = Date.now();
+        if (nowDate - oldDate >= wait) {
+            func(...arguments);
+            oldDate = nowDate;
+        }
+    }
+}
+
+```
+- 定时器版节流
+```js
+/**
+* @Description：定时器版节流
+* @param { Function } func 回调函数
+* @param { Number } wait 延迟时间
+* @return { Function }
+*/
+const throttlel = (func, wait = 1000) => {
+    let timer;
+    return function () {
+        !timer && (timer = setTimeout(() => {
+            timer = null;
+            func(...arguments);
+        }, wait))
+    }
+}
+```

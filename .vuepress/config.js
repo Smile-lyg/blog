@@ -1,6 +1,6 @@
 module.exports = {
   // "base": '/',
-  "base": '/blog/',
+  "base": './',
   "locales": {
     '/': {
       "lang": 'zh-CN'

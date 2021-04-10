@@ -5,7 +5,7 @@ tags:
  - git
 categories:
  - 笔记
-sticky: 1
+# sticky: 1
 ---
 :::tip
 Git（读音为/gɪt/）是一个开源的分布式版本控制系统，可以有效、高速地处理从很小到非常大的项目版本管理。

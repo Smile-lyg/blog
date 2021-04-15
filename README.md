@@ -12,7 +12,7 @@ tagline: 记录，成为更好的自己。
 #   borderRadius: '1rem',
 # }
 bgImageStyle: {
-  height: '650px'
+  height: '300px'
 }
 isShowTitleInHome: false
 ---

@@ -8,7 +8,7 @@ categories:
 ---
 
 ## Babel 是一个 JavaScript compiler
-
+- [中文文档](https://babel.docschina.org/)
 :::tip
 Babel 是一个工具链，主要用于在旧的浏览器或环境中将 ECMAScript 2015+ 代码转换为向后兼容版本的 JavaScript 代码。（@babel/preset-env）<br>
 Babel 可以转换 JSX 语法！（@babel/preset-react）<br>

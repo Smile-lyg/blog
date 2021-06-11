@@ -1,5 +1,5 @@
 ---
-title: JS基础
+title: 几个算法
 date: 2021-06-9
 tags:
  - JavaScript

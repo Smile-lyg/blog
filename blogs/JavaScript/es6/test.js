@@ -1,12 +1,21 @@
-function demo3() {
-    console.log(this)
-    return () => {
-        console.log(this)
+class Bird {
+    constructor(cb, leg) {
+        this.cb = cb
+        this.leg = leg
+    }
+    fly() {
+        console.log('我会飞')
     }
 }
-const fn = demo3()
-fn() // window window
-const fn1 = demo3.call({
-    name: 'jack'
-}) // { name: 'jack' } { name: 'jack' }
-fn1()
+// 麻雀类
+class Maque extends Bird {
+    constructor(cb, leg, color, name) {
+        super(cb, leg)
+        this.color = color
+        this.name = name
+    }
+}
+let lily = new Maque('两只翅膀', '两条腿', 'black', 'lily')
+console.log(lily);
+lily.fly()
+console.log(Object.getPrototypeOf(Maque) === Bird)

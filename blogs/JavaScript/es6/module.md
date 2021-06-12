@@ -71,6 +71,7 @@ import * as obj from './xxx'
 ## export default 命令
 
 - export default 本质上就是输出一个叫做 default 的变量或方法，然后系统允许你为它取任意名字。
+- 一个 js 文件中只能出现一次。
 
 ```js
 // export-default.js

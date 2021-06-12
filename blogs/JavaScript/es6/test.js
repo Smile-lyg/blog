@@ -1,7 +1,12 @@
-async function demo() {
-    let a = await Promise.resolve(1)
-    return a
+function demo3() {
+    console.log(this)
+    return () => {
+        console.log(this)
+    }
 }
-demo()
-    .then((v) => console.log(v)) // undefind
-    .catch((e) => console.log(e))
+const fn = demo3()
+fn() // window window
+const fn1 = demo3.call({
+    name: 'jack'
+}) // { name: 'jack' } { name: 'jack' }
+fn1()

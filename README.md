@@ -1,7 +1,7 @@
 ---
 home: true
 heroText: 博客
-tagline: 记录，成为更好的自己。
+tagline: 不积跬步，无以至千里；不积小流，无以成江海。
 # heroImage: /hero.png
 # heroImageStyle: {
 #   maxWidth: '600px',
@@ -11,8 +11,6 @@ tagline: 记录，成为更好的自己。
 #   background: '#fff',
 #   borderRadius: '1rem',
 # }
-bgImageStyle: {
-  height: '300px'
-}
+bgImageStyle: { height: '300px' }
 isShowTitleInHome: false
 ---

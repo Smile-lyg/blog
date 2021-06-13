@@ -122,6 +122,7 @@ exports.ysJS = minifyJS
 ```js
 const { src, dest } = require('gulp')
 const cleanCSS = require('gulp-clean-css')
+
 function minifyCSS() {
   return src('css/bootstrap.css')
     .pipe(cleanCSS())
@@ -130,24 +131,126 @@ function minifyCSS() {
 exports.ysCSS = minifyCSS
 ```
 
-3. gulp-rename：重命名文件插件。
+3. gulp-htmlmin：压缩 HTML 代码。
 
 ```js
 const { src, dest } = require('gulp')
-const cleanCSS = require('gulp-clean-css')
-function minifyCSS() {
-  return src('css/bootstrap.css')
-    .pipe(cleanCSS())
+const htmlmin = require('gulp-htmlmin')
+
+function minifyHTML() {
+  return src('html/index.html')
     .pipe(
-      rename({
-        // dirname: "static/css",
-        // basename: "bootstrap",
-        // prefix: "my-", // 文件名前缀
-        suffix: '.min', // 文件名后缀
-        // extname: ".css" // 扩展名
+      htmlmin({
+        collapseWhitespace: true,
       })
     )
-    .pipe(dest('dist/css'))
+    .pipe(dest('dist'))
 }
-exports.ysCSS = minifyCSS
+exports.yshtml = minifyHTML
 ```
+
+4. gulp-rename：重命名文件插件。
+
+```js
+//...
+const rename = require('gulp-rename')
+  //...
+  .pipe(
+    rename({
+      // dirname: "static/css",
+      // basename: "bootstrap",
+      // prefix: "my-", // 文件名前缀
+      suffix: '.min', // 文件名后缀
+      // extname: ".css" // 扩展名
+    })
+  )
+//...
+```
+
+4. gulp-babel：JavaScript 高级语法转换。
+
+- npm i -D gulp-babel @babel/core @babel/preset-env
+
+```js
+const { src, dest } = require('gulp')
+const uglify = require('gulp-uglify')
+const babel = require('gulp-babel')
+
+function babelJS() {
+  return src('js/es6.js')
+    .pipe(
+      babel({
+        presets: ['@babel/env'],
+      })
+    )
+    .pipe(rename({ basename: 'es5' }))
+    .pipe(dest('dist/js'))
+    .pipe(uglify()) // 压缩js
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(dest('dist/js'))
+}
+exports.bjs = babelJS
+```
+
+5. gulp-imagemin：压缩 PNG, JPEG, GIF and SVG 图片。（不好用，总是报错）
+   - 若出错请使用 cnpm 安装
+
+```js
+const imagemin = require('gulp-imagemin');
+// 不提供参数，默认的配置满足大多数情况下的需要。
+.pipe(imagemin())
+
+// 配置插件会完全覆盖原有的插件，请完整传递这些默认的插件：[imagemin.gifsicle(), imagemin.mozjpeg(), imagemin.optipng(), imagemin.svgo()]
+// 通用配置
+.pipe(
+  imagemin([
+    imagemin.gifsicle({ interlaced: true }),  // 是否隔行扫描gif进行渲染， 默认false，
+    imagemin.mozjpeg({ quality: 75, progressive: true }), // progressive，是否无损压缩jpg图片  默认false，
+    imagemin.optipng({ optimizationLevel: 5 }), // 优化等级（0-7），默认 3
+    imagemin.svgo({
+      plugins: [{ removeViewBox: true }, { cleanupIDs: false }],
+    }),
+  ])
+)
+
+```
+
+6. gulp-concat：合并文件。
+
+```js
+const concat = require('gulp-concat')
+
+ function task() {
+  return .src('./lib/*.js')
+    .pipe(concat('all.js'))
+    .pipe(dest('./dist/js'))
+})
+exports.default = task
+```
+
+## watch()
+
+- 监听 globs 并在发生更改时运行任务。
+- watch(globs, [options], [task])
+
+```js
+const { src, dest, watch } = require('gulp')
+const babel = require('gulp-babel')
+
+function test() {
+  return src('js/es6.js')
+    .pipe(
+      babel({
+        presets: ['@babel/env'],
+      })
+    )
+    .pipe(dest('dist/js'))
+}
+exports.t = test
+watch(['js/es6.js'], { ignoreInitial: false }, test) // 运行gulp t的时候执行t任务，同时也会执行test任务
+```
+
+- options 属性
+  1. ignoreInitial，布尔值，默认为 true。即实例化 watch 的时候，默认不执行里面的任务。
+  2. events，数组，默认[ 'add','change','unlink' ]，即创建、修改、删除文件触发任务。可以是 'add'、'addDir'、'change'、'unlink'、'unlinkDir', 'ready'、和/或 'error'。 另外 'all' 也是可用的，它表示除 'ready' 和 'error' 之外的所有事件。
+  3. delay，文件更改和任务执行之间的毫秒延迟。默认 200，即文件修改后延迟 200ms，再运行任务。

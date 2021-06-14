@@ -192,7 +192,7 @@ function babelJS() {
 exports.bjs = babelJS
 ```
 
-5. gulp-imagemin：压缩 PNG, JPEG, GIF and SVG 图片。（不好用，总是报错）
+5. gulp-imagemin：压缩 PNG, JPEG, GIF and SVG 图片。（不好用，总容易出错）
    - 若出错请使用 cnpm 安装
 
 ```js

@@ -2,7 +2,7 @@
 title: rollup的基本使用方法
 date: 2021-06-15
 tags:
-  - Webpack
+  - rollup
 categories:
   - 前端工程化
 ---

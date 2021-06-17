@@ -62,6 +62,7 @@ module.exports = {
       // }
     ],
     "logo": "/logo.jpg",
+    "sidebar": 'auto',
     "subSidebar": 'auto',
     "search": true,
     "searchMaxSuggestions": 10,

@@ -1,6 +1,6 @@
 module.exports = {
-  // "base": '/',
-  "base": './',
+  // "base": '/', // 本地调试
+  "base": './', // 仓库托管
   "locales": {
     '/': {
       "lang": 'zh-CN'
@@ -67,9 +67,9 @@ module.exports = {
     "search": true,
     "searchMaxSuggestions": 10,
     "lastUpdated": "上次更新",
-    "author": "Smile-lyg",
+    "author": "Smile",
     "authorAvatar": "/avatar.jpg",
-    "record": "xxxx",
+    // "record": "xxxx",
     "startYear": "2021",
     "recoLocales": {
       // "homeBlog": {

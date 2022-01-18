@@ -1,10 +1,10 @@
 ---
 title: 理解CSS
-date: 2021-01-16
+date: 2022-01-17
 tags:
   - CSS
 categories:
-  - 前端青训营笔记
+  - 青训营笔记
 ---
 
 ## 理解 CSS

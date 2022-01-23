@@ -84,6 +84,10 @@ module.exports = {
         "go": '前往',
         "jump": '跳转至'
       }
+    },
+    valineConfig: {
+      appId: 'exgBe08buReYEEENkBp3sTUa-gzGzoHsz', // your appId
+      appKey: 'AK4S2shgWknWU3SeEAoVOCWA', // your appKey
     }
   },
   "markdown": {
@@ -117,6 +121,10 @@ module.exports = {
       tip: {
         content: "复制成功!"
       }
+    }],
+    ['@vuepress/active-header-links', {
+      sidebarLinkSelector: '.sidebar-link',
+      headerAnchorSelector: '.header-anchor'
     }]
   ],
 }

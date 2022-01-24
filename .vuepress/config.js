@@ -1,6 +1,5 @@
 module.exports = {
-  // "base": '/', // 本地调试
-  "base": './', // 仓库托管
+  "base": '/blog/',
   "locales": {
     '/': {
       "lang": 'zh-CN'
@@ -88,6 +87,7 @@ module.exports = {
     valineConfig: {
       appId: 'exgBe08buReYEEENkBp3sTUa-gzGzoHsz', // your appId
       appKey: 'AK4S2shgWknWU3SeEAoVOCWA', // your appKey
+      visitor: true
     }
   },
   "markdown": {
@@ -125,6 +125,13 @@ module.exports = {
     ['@vuepress/active-header-links', {
       sidebarLinkSelector: '.sidebar-link',
       headerAnchorSelector: '.header-anchor'
-    }]
+    }],
+    // ['@vuepress-reco/comments', {
+    //   solution: 'valine',
+    //   options: {
+    //     appId: 'exgBe08buReYEEENkBp3sTUa-gzGzoHsz', // your appId
+    //     appKey: 'AK4S2shgWknWU3SeEAoVOCWA', // your appKey
+    //   }
+    // }]
   ],
 }

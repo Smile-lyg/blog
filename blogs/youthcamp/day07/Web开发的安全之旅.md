@@ -1,6 +1,6 @@
 ---
 title: Web安全
-date: 2022-01-24
+date: 2022-01-25
 tags:
   - XSS
   - CSRF
@@ -34,7 +34,7 @@ categories:
 </script>
 ```
 
-### **XSS = **
+### XSS =
 
 - 盲目信任用户提交的内容
 - +

@@ -3,9 +3,9 @@ title: Webpack知识体系
 date: 2022-01-29
 tags:
   - Webpack
-  - 工程化
 categories:
   - 青训营笔记
+  - 前端工程化
 ---
 
 ## 什么是 Webpack

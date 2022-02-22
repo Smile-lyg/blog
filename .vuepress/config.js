@@ -66,7 +66,7 @@ module.exports = {
     "search": true,
     "searchMaxSuggestions": 10,
     "lastUpdated": "上次更新",
-    "author": "Smile",
+    "author": "itsmile",
     "authorAvatar": "/avatar.jpg",
     // "record": "xxxx",
     "startYear": "2021",

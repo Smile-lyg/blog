@@ -111,7 +111,7 @@ export default {
       return new Promise((resolve, reject) => {
         options.url = this.baseUrl + options.url
         options.method = options.method || 'GET'
-        options.header = this.header
+        options.header = { ...this.header, ...options.header }
 
         resolve(options)
       })

@@ -7,6 +7,17 @@ categories:
   - JS基础
 ---
 
+## Array.prototype.reduce()
+
+reduce() 方法对数组中的每个元素执行一个由您提供的 reducer 函数(升序执行)，将其结果汇总为**单个返回值**。
+
+```js
+let arr = [1, 2, 3, 4]
+let ret = arr.reduce((t, v) => t + `<span>${v}</span>`, '')
+
+console.log(ret) // <span>1</span><span>2</span><span>3</span><span>4</span>
+```
+
 ![image-20210609150016671](./imgs/js01.png)
 
 ## 比较两个对象是否相等

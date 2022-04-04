@@ -1,6 +1,6 @@
 ---
 title: 块级作用域绑定、let、const
-date: 2022-04-2
+date: 2022-06-10
 tags:
   - JavaScript
 categories:

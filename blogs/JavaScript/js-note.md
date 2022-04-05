@@ -1,6 +1,6 @@
 ---
 title: JS-note
-date: 2021-06-9
+date: 2021-06-09
 tags:
   - JavaScript
 categories:
@@ -72,7 +72,7 @@ function remove(arr, item) {
    ```js
    let arr = [1, 1, 1, 2, 2, 2, 3, 3, 3]
    let newArr = []
-   arr.forEach((value) => newArr.indexOf(v) === -1 && newArr.push(v))
+   arr.forEach(value => newArr.indexOf(v) === -1 && newArr.push(v))
    ```
 
 2. ES6 Set。
@@ -88,7 +88,7 @@ function remove(arr, item) {
    let arr = [1, 1, 1, 2, 2, 2, 3, 3, 3]
    let _set = {}
    let newArr = []
-   arr.forEach((v) => _set[v] || ((_set[v] = true), newArr.push(v)))
+   arr.forEach(v => _set[v] || ((_set[v] = true), newArr.push(v)))
    ```
 
 4. ...

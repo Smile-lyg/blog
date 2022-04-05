@@ -25,7 +25,7 @@ function makeRequest(url, timeout, callback) {
 :::
 在这种情况下，更安全的选择是通过 typeof 检查参数类型，如下
 
-```js
+```js{2-3}
 function makeRequest(url, timeout, callback) {
   timeout = typeof timeout !== 'undefined' ? timeout : 5000
   callback = typeof callback !== 'undefined' ? callback : function() {}
@@ -37,7 +37,7 @@ function makeRequest(url, timeout, callback) {
 
 ## es6 中的默认参数值
 
-```js
+```js{1}
 function makeRequest(url, timeout = 5000, callback = function() {}) {
   // ...
 }
@@ -53,7 +53,7 @@ function makeRequest(url, timeout = 5000, callback = function() {}) {
 
 非原始值传参，如可以通过函数执行来得到默认参数的值
 
-```js
+```js{4}
 function getValue() {
   return 5
 }
@@ -70,7 +70,7 @@ console.log(add(1)) // 6
 :::
 正是因为默认参数是在函数调用时求值，所以可以使用先定义的参数作为后定义的参数的默认值。
 
-```js
+```js{4}
 function getValue(v) {
   return v + 5
 }

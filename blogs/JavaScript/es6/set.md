@@ -18,7 +18,7 @@ Set 本身是一个构造函数，用来生成 Set 数据结构。
 
 ```js{1}
 let set = new Set()
-let set = new Set()
+
 set.add(5) // 1
 set.add('5') // 2
 
@@ -41,7 +41,7 @@ console.log(set.size) // 5
 
 使用 Set 去重。
 
-```js{2,5}
+```js{3,8}
 // 去除数组的重复成员
 let arr = [3, 5, 2, 2, 5, 5]
 let unique = [...new Set(arr)]
@@ -134,7 +134,7 @@ WeakSet 集合（弱引用集合）。WeakSet 集合只存储**对象**的弱引
 
 用 WeakSet 构造函数可以创建 WeakSet 集合，集合支持 3 个方法：add()、has()、delete()。
 
-```js{1,4,7, 12}
+```js{1,4,7,12}
 let set = new WeakSet()
 let key = {}
 

@@ -134,7 +134,7 @@ console.log(Symbol('bar') === Symbol('bar')) // false
 
 Symbol.keyFor() 法返回一个**已登记**的 Symbol 类型值的 key。
 
-```js{2, 5}
+```js {2, 5}
 let s1 = Symbol.for('foo')
 console.log(Symbol.keyFor(s1)) // foo
 

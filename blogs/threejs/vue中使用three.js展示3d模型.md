@@ -50,6 +50,15 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 - 贴图材质要导出到指定文件夹，便于管理
   ![材质导出](./imgs/1.png)
 
+- 也可打开`.mtl`文件手动修改贴图路径
+
+![贴图路径](./imgs/4.jpg)
+
+:::warning
+tga 格式的图片无法加载的，
+使用 http 方式访问，支持的图片类型文档中有写： PNG、JPG、GIF
+:::
+
 ### 模型存放位置
 
 ![模型路径](./imgs/2.jpg)

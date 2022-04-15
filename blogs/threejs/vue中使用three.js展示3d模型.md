@@ -263,6 +263,18 @@ MTLLoader 报 Handlers.get() has been removed. Use LoadingManager.getHandler() i
         this.init()
         this.animate()
       },
+      // 清除缓存
+      clearCache(obj) {
+        let mesh = obj
+        mesh.geometry.dispose()
+        if (mesh.material instanceof Array) {
+          mesh.material.forEach(item => {
+            item.dispose()
+          })
+        } else {
+          mesh.material.dispose()
+        }
+      },
       // 清空渲染器缓存
       clearRenderer() {
         this.object && this.clearCache(this.object.children[0])

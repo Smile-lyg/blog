@@ -138,7 +138,7 @@ Vue.use(uView)
    </style>
    ```
 
-   注意要写在**第一行**，同时给 style 标签加入**lang="scss"**属性
+   注意要写在**App.vue 样式里的第一行**，同时给 style 标签加入**lang="scss"**属性
 
 4. 配置 easycom 组件模式
 

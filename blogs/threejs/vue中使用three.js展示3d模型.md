@@ -13,6 +13,8 @@ categories:
 记录一下初次使用 threejs 展示 3d 模型的过程
 :::
 
+![展示](./imgs/1649860164719_.gif)
+
 ## 安装
 
 ```shell

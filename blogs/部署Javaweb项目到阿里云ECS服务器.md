@@ -73,10 +73,12 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY '12345678';
 
 6. 启动 Tomcat：`/usr/local/Tomcat8.5/bin/./startup.sh`
 7. 浏览器输入:`http://公网ip`即可看到 Tomcat 的欢迎页
-8. 停止服务：
+8. 停止服务：`/usr/local/Tomcat8.5/bin/./shutdown.sh`
 
-- ps -ef|grep tomcat8 #查看进程
-- kill - 9 888 # 888 是进程号，这里自行匹配
+   _或者简单粗暴，直接清除 Tomcat 运行进程_
+
+- `ps -ef|grep tomcat8` # 查看进程
+- `kill -9 888` # 888 是进程号，这里自行匹配
 
 ### 然后 Javaweb 开发环境就已经搭建好了。
 
@@ -86,7 +88,7 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY '12345678';
 - 将文件拷贝到 Tomcat/bin/webapps 目录下
 - `mv museum2.war /usr/local/Tomcat8.5/webapps`
 - 这里使用了 `FileZilla` 软件通过 sftp 上传文件到云服务器上。
-  ![image.png](https://ucc.alicdn.com/pic/developer-ecology/2a73e356ed2d42c5b6fedab855ebf167.png)
+  ![image.png](./images/2a73e356ed2d42c5b6fedab855ebf167.png)
 
 ## 创建项目需要的 MySQL 数据库
 

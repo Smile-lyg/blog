@@ -116,7 +116,7 @@ git config --global user.email "email address"
 ## 克隆分支
 
 1. **普通克隆方式**
-``` 
+```
 git clone <远程仓库地址>
 ```
 
@@ -292,3 +292,19 @@ doc/*.txt
 doc/**/*.txt
 :::
 
+## 将现有 git 仓库中的子目录分离为独立仓库并保留其提交历史
+
+```shell
+git subtree split -P <name-of-folder> -b <name-of-new-branch>
+```
+:::tip
+运行后，git 会遍历原仓库中所有的历史提交，挑选出与指定路径相关的 commit 并存入名为 name-of-new-branch 的临时分支中。另外需要注意的是，如果你在使用 Windows，且该文件夹深度 > 1，你必须使用斜杠 / 作为目录分隔符而不是默认的反斜杠 \。
+:::
+
+## 创建空分支
+```shell
+git checkout --orphan <name-of-new-branch>
+```
+:::tip
+使用 `git checkout --orphan 分支名` 创建的分支会把原分支的内容拷贝过来，因为要创建空分支，所以需要使用`git rm -rf .`来清除拷贝的内容。
+:::

@@ -223,7 +223,7 @@ export default defineConfig(({ command, mode }) => {
 ## [vite环境变量](https://cn.vitejs.dev/guide/env-and-mode.html#env-variables-and-modes)
 - 根目录下的`.env`文件会被默认读取，包括`.env.production`、`.env.development`
 - env文件里面的以 `VITE_`为前缀的变量会以**字符串形式**被暴露出去，通过`import.meta.env.VITE_SOME_KEY`来访问
-```env
+```
 VITE_PUBLIC_PATH = /
 VITE_DEV_PORT = 8800
 # 请求根地址

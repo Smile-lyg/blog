@@ -309,3 +309,86 @@ export function wrapperEnv(envConf) {
   return ret;
 }
 ```
+
+## 本地及开发环境数据 mock
+- 使用插件 [vite-plugin-mock](https://github.com/vbenjs/vite-plugin-mock)， 用于本地及开发环境数据 mock
+### 安装
+```sh
+npm i mockjs
+npm i vite-plugin-mock -D
+```
+### 开发环境使用
+- `vite.config.js`
+```js{2,10-13}
+import { defineConfig } from 'vite'
+import { viteMockServe } from 'vite-plugin-mock'
+
+export default defineConfig(({ command, mode }) => {
+  // command === 'serve' | 'build'
+  // mode === 'development' | 'production'
+
+  return {
+    plugins: [
+      viteMockServe({
+        mockPath: 'mock', // mock文件所在目录
+        localEnabled: command === 'serve',
+      })
+    ],
+  }
+})
+```
+- 编写`mock/mockData.ts`
+```ts
+import { MockMethod } from 'vite-plugin-mock'
+
+export default [
+  {
+    url: '/api/user/login',
+    method: 'post',
+    response: (req, res) => {
+      return {
+        code: 200,
+        msg: 'success',
+        data: []
+      }
+    }
+  }
+] as MockMethod[]
+```
+### 生产环境使用
+- 创建`mock/mockProdServer.ts`文件
+```ts
+import { createProdMockServer } from 'vite-plugin-mock/es/createProdMockServer'
+
+// 导入你的mock模块
+import mockData from './mockData'
+
+export function setupProdMockServer() {
+  createProdMockServer([...mockData])
+}
+```
+- `vite.config.js`
+```js{2,13-18}
+import { defineConfig } from 'vite'
+import { viteMockServe } from 'vite-plugin-mock'
+
+export default defineConfig(({ command, mode }) => {
+  // command === 'serve' | 'build'
+  // mode === 'development' | 'production'
+
+  return {
+    plugins: [
+      viteMockServe({
+        mockPath: 'mock', // mock文件所在目录
+        localEnabled: command === 'serve',
+        prodEnabled: command !== 'serve' && VITE_PROD_MOCK, // VITE_PROD_MOCK 根据项目配置。可以配置在.env文件
+        // 这样可以控制关闭mock的时候不让mock打包到最终代码内，注意引入的路径是基于main.js文件的位置，不是根目录
+        injectCode: `
+          import { setupProdMockServer } from '../mock/mockProdServer';
+          setupProdMockServer();
+        `
+      })
+    ],
+  }
+})
+```

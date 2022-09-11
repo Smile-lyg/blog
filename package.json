@@ -17,6 +17,5 @@
     "vuepress-plugin-nuggets-style-copy": "^1.0.3",
     "vuepress-theme-reco": "1.6.1"
   },
-  "description": "take study notes",
-  "dependencies": {}
+  "description": "take study notes"
 }
